@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+  <meta charset="utf-8" title="<%= title %>">
+  <title><%= title %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="<%= description %>">
+  <meta property="og:title" content="<%= title %>">
+  <meta property="og:url" content="<%= url %>">
+  <meta property="og:locale" content="<%= lang %>">
+  <meta property="og:description" content="<%= description %>">
+  <meta name="color-scheme" content="light">
+  <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+  <header>
+    <img src="/images/logo_black.svg" height="32">
+    <form action="/" method="GET">
+      <input type="text" name="location" class="accent" placeholder="Location">
+    </form>
+  </header>
+
+  <div class="sun_graphic">
+    <svg viewBox="0 0 1646 484" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:<%= graph_y %>px">
+    <path d="M0 482C418.298 482 404.559 2 822.857 2C1241.16 2 1227.42 482 1645.71 482" stroke="url(#paint0_linear_2_5)" stroke-width="4" class="fill"/>
+    <defs>
+    <linearGradient id="paint0_linear_2_5" x1="-0.000338016" y1="139.143" x2="1645.71" y2="138.982" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#003C1F"/>
+    <stop offset="0.501348" stop-color="#E7CA43"/>
+    <stop offset="1" stop-color="#3C0000"/>
+    </linearGradient>
+    </defs>
+    </svg>
+  </div>
+
+  <div class="gradient">
+    <main>
+      <table class="calendar">
+        <% for (w = 0; w < calendar.length; w++) { %>
+        <tr>
+          <% for (d = 0; d < calendar[w].length; d++) { %>
+          <td><b><%= calendar[w][d] || '' %></b></td>
+          <% } %>
+        </tr>
+        <% } %>
+      </table>
+    </main>
+  </div>
+</body>
+</html>

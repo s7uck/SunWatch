@@ -1,0 +1,65 @@
+html, body {
+  margin: 0;
+  font-family: 'Noto Sans';
+  background-color: #FFEFD8;
+  background-image: linear-gradient(#FFEFD8, #D0C4B3);
+  background-attachment: fixed;
+  background-size: cover;
+}
+body>header, main {
+  max-width: 80ch;
+  margin: 0 auto;
+}
+body>header,menu,.list {
+  display: flex;
+  row-gap: 1em;
+  column-gap: 1em;
+}
+body>header {
+  padding: 4em;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+input {
+  border: none !important;
+  outline: none !important;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-family: inherit;
+  font-size: inherit;
+}
+.accent {
+  color: #ECE0AA;
+}
+input.accent, button.accent {
+  background-color: #ECE0AA;
+}
+.sun_graphic svg {
+  display: block;
+  position: relative;
+  width: 100%;
+  background-size: 100% 100%;
+}
+.sun_graphic .fill {
+  fill: #E5D9C7;
+}
+.sun_graphic ~ .gradient {
+  background-image: linear-gradient(#E5D9C7, #D0C4B3);
+}
+menu {
+  padding: 0;
+}
+menu li {
+  list-style-type: none;
+}
+main>.calendar {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+.calendar td:not(:empty) {
+  text-align: right;
+  outline: 1px solid #D0C4B3;
+  padding: 8px 10px;
+  max-width: 38px;
+}
