@@ -1,5 +1,6 @@
 html, body {
   margin: 0;
+  height: 100%;
   font-family: 'Noto Sans';
   background-color: #FFEFD8;
   background-image: linear-gradient(#FFEFD8, #D0C4B3);
@@ -21,16 +22,13 @@ body>header {
   align-items: center;
   justify-content: center;
 }
-input {
+input, button {
   border: none !important;
   outline: none !important;
   border-radius: 4px;
   padding: 4px 8px;
   font-family: inherit;
   font-size: inherit;
-}
-.accent {
-  color: #ECE0AA;
 }
 input.accent, button.accent {
   background-color: #ECE0AA;
@@ -45,6 +43,7 @@ input.accent, button.accent {
   fill: #E5D9C7;
 }
 .sun_graphic ~ .gradient {
+  height: 100%;
   background-image: linear-gradient(#E5D9C7, #D0C4B3);
 }
 menu {
