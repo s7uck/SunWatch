@@ -7,7 +7,7 @@ html, body {
   background-attachment: fixed;
   background-size: cover;
 }
-body>header, main {
+body>header, main, body>footer {
   max-width: 80ch;
   margin: 0 auto;
 }
