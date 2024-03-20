@@ -37,7 +37,7 @@ router.get('/', function(req, res, next) {
   let elevation = model.getElevation(date, lat, long)
   console.log(date, lat, long, elevation, maxElevation)
 
-  let graph_y = 50 + (20/6) * maxElevation
+  let graph_y = 50 + (20/6) * Math.max(0, maxElevation)
   let calendar = makeCalendar(date)
   res.locals.graph_y = graph_y
   res.locals.calendar = calendar
