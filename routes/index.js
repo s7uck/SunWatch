@@ -29,14 +29,16 @@ router.get('/', function(req, res, next) {
   let site = req.app.locals.site;
 
   let now = new Date()
-  let lat = 40
-  let long = 17 //example rn
+  let date = new Date(req.query.date + ' ' + req.query.time) || now
+  let lat = req.query.lat || 40
+  let long = req.query.long || 17 //example rn
 
-  let maxElevation = model.getMaxElevation(now, lat, long)
-  let elevation = model.getElevation(now, lat, long)
+  let maxElevation = model.getMaxElevation(date, lat, long)
+  let elevation = model.getElevation(date, lat, long)
+  console.log(date, lat, long, elevation, maxElevation)
 
   let graph_y = 50 + (20/6) * maxElevation
-  let calendar = makeCalendar(now)
+  let calendar = makeCalendar(date)
   res.locals.graph_y = graph_y
   res.locals.calendar = calendar
 
