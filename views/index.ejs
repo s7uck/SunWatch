@@ -35,15 +35,18 @@
 
   <div class="gradient">
     <main>
-      <table class="calendar">
-        <% for (w = 0; w < calendar.length; w++) { %>
-        <tr>
-          <% for (d = 0; d < calendar[w].length; d++) { %>
-          <td><b><%= calendar[w][d] || '' %></b></td>
+      <center>
+        <h3><%= month_s %> </h3>
+        <table class="calendar">
+          <% for (w = 0; w < calendar.length; w++) { %>
+          <tr>
+            <% for (d = 0; d < calendar[w].length; d++) { %>
+            <td<% if (calendar[w][d] == day) { %> class="accent"<% } %>><b><%= calendar[w][d] || '' %></b></td>
+            <% } %>
+          </tr>
           <% } %>
-        </tr>
-        <% } %>
-      </table>
+        </table>
+      </center>
     </main>
   </div>
 </body>
