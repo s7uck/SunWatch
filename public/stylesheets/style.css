@@ -30,7 +30,7 @@ input, button {
   font-family: inherit;
   font-size: inherit;
 }
-input.accent, button.accent {
+input.accent, button.accent, td.accent {
   background-color: #ECE0AA;
 }
 .sun_graphic svg {
