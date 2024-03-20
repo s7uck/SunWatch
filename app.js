@@ -13,7 +13,7 @@ site_data = fs.readFileSync('site.data', { encoding: 'utf-8', flag: 'r' });
 var site = JSON.parse(site_data);
 
 app.locals.site = site;
-const LOGFILE = process.env.LOGFILE || '/tmp/apod.log';
+const LOGFILE = process.env.LOGFILE || '/tmp/sunwatch_access.log';
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
