@@ -5,7 +5,7 @@ function mod(a, n) {
 	return a % n
 }
 
-function getElevation(time, lat, long) {
+function sunPosition(time, lat, long) {
 	let date = time.getDate()
 	let month= time.getMonth() + 1
 	let year = time.getFullYear()
@@ -67,10 +67,57 @@ function getElevation(time, lat, long) {
 	+	Math.cos(lat*rad)*Math.cos(delta*rad)*Math.cos(tau*rad)
 		)
 
-	console.dir({ JD, T, M, L0, DL, L, X, Y, Z, R, delta, RA, theta, tau, sin_elevation })
+	let result = { JD, T, M, L0, DL, L, X, Y, Z, R, delta, RA, theta, tau, sin_elevation }
+	result.elevation = Math.asin(sin_elevation)/rad
+	result.declination = delta
+	console.dir(result)
+	return result
+}
 
-	let elevation = Math.asin(sin_elevation)/rad
-	return elevation
+function getElevation(time, lat, long) {
+	return Math.asin(sunPosition(time, lat, long).sin_elevation)/rad
+}
+
+function getDeclination(time, lat, long) {
+	return sunPosition(time, lat, long).delta
+}
+
+function equationOfTime(time, lat, long) {
+	let sun_pos = sunPosition(time, lat, long)
+	let eqtime = 4*(sun_pos.L0 - 0.0057183 - sun_pos.RA)
+	if (Math.abs(eqtime) < 20) eqtime -= 4*360
+	return eqtime
+}
+
+function timeOffset(time, lat, long, utc_offset_min) {
+	let hours = time.getHours()
+	let minutes = time.getMinutes()
+	let seconds = time.getSeconds()
+
+	let eqtime = equationOfTime(time, lat, long)
+	let time_offset = eqtime + 4*long + utc_offset_min
+	let true_solar_time = hours*60 + minutes + seconds/60 + time_offset
+	let hour_angle = true_solar_time/4 - 180
+	return time_offset
+}
+
+function sunTimes(time, lat, long) {
+	let zenith = 90
+	let delta = getDeclination(time, lat, long)
+	let eqtime = equationOfTime(time, lat, long)
+	let hour_angle = Math.acos(
+		Math.cos(zenith)/(Math.cos(lat)*Math.cos(delta))
+	-	Math.tan(lat)*Math.tan(delta)
+		)
+
+	console.log(hour_angle)
+
+	let stime = 720 - 4*long - eqtime
+
+	return {
+		sunrise: stime + 4*hour_angle,
+		sunset: stime - 4*hour_angle
+	}
 }
 
 function getMaxElevation(date, lat, long) {
@@ -96,4 +143,10 @@ function getMaxElevation(date, lat, long) {
 // maxElevation = getMaxElevation(testDate, 50, 10)
 // console.log(maxElevation)
 
-module.exports = { getElevation, getMaxElevation }
+module.exports = {
+	getElevation,
+	getDeclination,
+	equationOfTime,
+	timeOffset,
+	sunTimes,
+	getMaxElevation }
