@@ -39,7 +39,7 @@ router.get('/', function(req, res, next) {
   let alt = req.query.alt || 0
   let utcOffset = date.getTimezoneOffset()
 
-  let times = sun.times(date, lat, long)
+  let times = sun.times(date, lat, long, alt)
 
   let elevation = sun.elevation(date, lat, long)
   let maxElevation = sun.maxElevation(date, lat, long)
