@@ -1,4 +1,5 @@
 const rad = Math.PI/180
+const deg = 1/rad
 
 function mod(a, n) {
 	if (a/n < 0) return (a % n) + n
@@ -9,9 +10,9 @@ function sunPosition(time, lat, long) {
 	let date = time.getDate()
 	let month= time.getMonth() + 1
 	let year = time.getFullYear()
-	// time of day in decimal form (ex. 00:30 -> 0,5)
 	let hours = time.getHours()
 	let minutes = time.getMinutes()
+	// time of day in decimal form (ex. 00:30 -> 0,5)
 	let ut = hours+1/60*minutes
 
 	console.dir({ time, date, month, year })
@@ -28,7 +29,6 @@ function sunPosition(time, lat, long) {
 	}
 	term4 /= 100
 	console.log("month > 2", month > 2)
-	console.dir({ term1, term2, term4 })
 	let JD = (
 		Math.floor(365.25*(term1))
 	+	Math.floor(30.6001*(term2))
@@ -106,9 +106,9 @@ function sunTimes(time, lat, long) {
 	let delta = getDeclination(time, lat, long)
 	let eqtime = equationOfTime(time, lat, long)
 	let hour_angle = Math.acos(
-		Math.cos(zenith)/(Math.cos(lat)*Math.cos(delta))
-	-	Math.tan(lat)*Math.tan(delta)
-		)
+		Math.sin(zenith*rad)
+	-	Math.sin(lat*rad) * Math.sin(delta*rad)) / (Math.cos(lat*rad) * Math.cos(delta*rad)
+		)*deg
 
 	console.log(hour_angle)
 
