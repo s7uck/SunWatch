@@ -112,11 +112,11 @@ function sunTimes(time, lat, long) {
 
 	console.log(hour_angle)
 
-	let stime = 720 - 4*long - eqtime
+	let noon = -4*long - eqtime
 
 	return {
-		sunrise: stime + 4*hour_angle,
-		sunset: stime - 4*hour_angle
+		sunrise: noon - 4*hour_angle,
+		sunset: noon + 4*hour_angle
 	}
 }
 
