@@ -2,6 +2,10 @@ var express = require('express');
 var router = express.Router();
 var model = require('../model');
 
+function dateValid(date) {
+  return !isNaN(date) ?? false;
+}
+
 function makeCalendar(date) {
   let today = date;
   let month = date.getMonth()
@@ -29,13 +33,24 @@ router.get('/', function(req, res, next) {
   let site = req.app.locals.site;
 
   let now = new Date()
-  let date = new Date(req.query.date + ' ' + req.query.time) || now
+  let date = new Date(req.query.date + ' ' + req.query.time)
+  if (!dateValid(date)) date = now
   let lat = req.query.lat || 40
   let long = req.query.long || 17 //example rn
+  let utcOffset = date.getTimezoneOffset()
 
   let maxElevation = model.getMaxElevation(date, lat, long)
   let elevation = model.getElevation(date, lat, long)
+  let declination = model.getDeclination(date, lat, long)
+  let equationOfTime = model.equationOfTime(date, lat, long)
+  let timeOffset = model.timeOffset(date, lat, long, utcOffset)
+  let sunTimes = model.sunTimes(date, lat, long)
+
   console.log(date, lat, long, elevation, maxElevation)
+  console.dir({
+    elevation, maxElevation, declination, equationOfTime, timeOffset,
+    sunTimes
+  })
 
   res.locals.date = date
   res.locals.lat = lat
