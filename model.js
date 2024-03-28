@@ -85,7 +85,7 @@ function getDeclination(time, lat, long) {
 function equationOfTime(time, lat, long) {
 	let sun_pos = sunPosition(time, lat, long)
 	let eqtime = 4*(sun_pos.L0 - 0.0057183 - sun_pos.RA)
-	if (Math.abs(eqtime) < 20) eqtime -= 4*360
+	if (Math.abs(eqtime) > 20) eqtime -= 4*360
 	return eqtime
 }
 
