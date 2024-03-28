@@ -22,6 +22,9 @@ body>header {
   align-items: center;
   justify-content: center;
 }
+h1, h2, h3, h4, h5, h6 {
+  margin-block-start: 0;
+}
 input, button {
   border: none !important;
   outline: none !important;
@@ -46,6 +49,19 @@ input.accent, button.accent, td.accent {
 .sun_graphic ~ .gradient {
   height: 100%;
   background-image: linear-gradient(#E5D9C7, #D0C4B3);
+}
+.infographic {
+  display: flex;
+  padding: 1em;
+  gap: 1em;
+  justify-content: space-between;
+  background-image: linear-gradient(to right, #003C1F, #E7CA43, #E7CA43, #3C0000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.infographic span {
+  display: flex;
+  flex-direction: column;
 }
 menu {
   padding: 0;

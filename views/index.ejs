@@ -25,7 +25,8 @@
     <defs>
     <linearGradient id="paint0_linear_2_5" x1="-0.000338016" y1="139.143" x2="1645.71" y2="138.982" gradientUnits="userSpaceOnUse">
     <stop stop-color="#003C1F"/>
-    <stop offset="0.501348" stop-color="#E7CA43"/>
+    <stop offset="<%= 0.5 %>" stop-color="#E7CA43"/>
+    <stop offset="<%= 0.5 %>" stop-color="#E7CA43"/>
     <stop offset="1" stop-color="#3C0000"/>
     </linearGradient>
     </defs>
@@ -33,6 +34,29 @@
   </div>
 
   <div class="gradient">
+    <div class="infographic">
+      <span>
+        <big>Dawn</big>
+        <time><%= times.dawn %></time>
+      </span>
+      <span>
+        <big>Sunrise</big>
+        <time><%= times.sunrise %></time>
+      </span>
+      <span>
+        <big>Noon</big>
+        <time><%= times.solarNoon %></time>
+      </span>
+      <span>
+        <big>Sunset</big>
+        <time><%= times.sunset %></time>
+      </span>
+      <span>
+        <big>Dusk</big>
+        <time><%= times.dusk %></time>
+      </span>
+    </div>
+
     <main>
       <center>
         <h3><%= month_s %> </h3>
