@@ -30,6 +30,17 @@ function makeCalendar(date) {
   return weeks
 }
 
+function getWeekdayString() {
+  let date = new Date("2007-01-01")
+  weekdays = []
+  for (i = 0; i < 7; i++) {
+    weekdays.push(date.toLocaleDateString(undefined, {weekday: 'short'})[0])
+    date.setDate(date.getDate() + 1)
+  }
+
+  return weekdays
+}
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   let site = req.app.locals.site;
@@ -66,6 +77,7 @@ router.get('/', function(req, res, next) {
   res.locals.calendar = calendar
 
   res.locals.day = date.getDate()
+  res.locals.weekdays = getWeekdayString()
   res.locals.month_s = date.toLocaleString(undefined, { month: "long" })
 
   res.render('index', site);
