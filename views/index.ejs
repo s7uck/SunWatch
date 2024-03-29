@@ -15,7 +15,7 @@
   <header>
     <img src="/images/logo_black.svg" alt="SunWatch" height="32">
     <form action="/" method="GET">
-      <input type="text" name="location" class="accent" placeholder="Location">
+      <input type="text" name="location" class="accent" placeholder="<%= locale.location %>">
     </form>
   </header>
 
@@ -34,12 +34,12 @@
   </div>
 
   <div class="gradient">
-    <ol class="infographic list"><% for (time of Object.keys(times)) { %>
+    <ol class="infographic list">
+<% for (time of ["nightEnd", "nauticalDawn", "sunrise", "solarNoon", "sunset", "dusk", "night"]) { %><% if (times[time] != "Invalid Date") { %>
       <li>
-        <strong><%= time %></strong>
+        <strong><%= locale[time] %></strong>
         <time><%= times[time] %></time>
-      </li>
-      <% } %>
+      </li><% }} %>
     </ol>
 
     <main>
