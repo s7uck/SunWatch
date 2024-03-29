@@ -13,7 +13,7 @@
 </head>
 <body>
   <header>
-    <img src="/images/logo_black.svg" height="32">
+    <img src="/images/logo_black.svg" alt="SunWatch" height="32">
     <form action="/" method="GET">
       <input type="text" name="location" class="accent" placeholder="Location">
     </form>
@@ -34,40 +34,26 @@
   </div>
 
   <div class="gradient">
-    <ol class="infographic">
+    <ol class="infographic list"><% for (time of Object.keys(times)) { %>
       <li>
-        <strong>Dawn</strong>
-        <time><%= times.dawn %></time>
+        <strong><%= time %></strong>
+        <time><%= times[time] %></time>
       </li>
-      <li>
-        <strong>Sunrise</strong>
-        <time><%= times.sunrise %></time>
-      </li>
-      <li>
-        <strong>Noon</strong>
-        <time><%= times.solarNoon %></time>
-      </li>
-      <li>
-        <strong>Sunset</strong>
-        <time><%= times.sunset %></time>
-      </li>
-      <li>
-        <strong>Dusk</strong>
-        <time><%= times.dusk %></time>
-      </li>
+      <% } %>
     </ol>
 
     <main>
-      <center>
+      <center id="calendar">
         <h3><%= month_s %> </h3>
         <table class="calendar">
-          <% for (w = 0; w < calendar.length; w++) { %>
-          <tr>
-            <% for (d = 0; d < calendar[w].length; d++) { %>
-            <td<% if (calendar[w][d] == day) { %> class="accent"<% } %>><b><%= calendar[w][d] || '' %></b></td>
-            <% } %>
-          </tr>
-          <% } %>
+          <thead><% for (i = 0; i < 7; i++) { %>
+            <th><%= weekdays[i].toUpperCase() %></th><% } %>
+          </thead>
+          <tbody><% for (w = 0; w < calendar.length; w++) { %>
+            <tr><% for (d = 0; d < calendar[w].length; d++) { %>
+              <td<% if (calendar[w][d] == day) { %> class="accent"<% } %>><b><%= calendar[w][d] || '' %></b></td><% } %>
+            </tr><% } %>
+          </tbody>
         </table>
       </center>
     </main>
