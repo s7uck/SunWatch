@@ -75,6 +75,8 @@ router.get('/', function(req, res, next) {
 
   res.locals.sunlightLength = times.sunsetEnd - times.sunrise / 100
   res.locals.daylightLength = times.night - times.nightEnd / 100
+  res.locals.darknessLength = times.sunrise - times.sunset / 100
+  res.locals.nightLength = times.nightEnd - times.night / 100
 
   let graph_y = 50 + (20/12) * Math.max(0, elevationDelta)
   let calendar = makeCalendar(date)
