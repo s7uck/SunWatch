@@ -2,6 +2,8 @@ html, body {
   margin: 0;
   height: 100%;
   font-family: 'Noto Sans';
+  display: flex;
+  flex-direction: column;
   background-color: #FFEFD8;
   background-image: linear-gradient(#FFEFD8, #D0C4B3);
   background-attachment: fixed;
@@ -10,6 +12,18 @@ html, body {
 body>header, main, body>footer {
   max-width: 80ch;
   margin: 0 auto;
+}
+a, .accent {
+  color: #B59817;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  border-bottom: 1px solid currentColor;
+}
+article {
+  max-width: 80ch;
 }
 body>header,menu,.list {
   display: flex;
@@ -22,8 +36,8 @@ body>header {
   align-items: center;
   justify-content: center;
 }
-h1, h2, h3, h4, h5, h6 {
-  margin-block-start: 0;
+time, dd, code {
+  font-variant-numeric: slashed-zero;
 }
 input, button {
   border: none !important;
@@ -35,6 +49,10 @@ input, button {
 }
 input.accent, button.accent, td.accent {
   background-color: #ECE0AA;
+  color: inherit;
+}
+h3, h4, h5, h6, summary, .infographic li {
+  font-variant-caps: all-small-caps;
 }
 .sun_graphic svg {
   display: block;
@@ -54,12 +72,12 @@ input.accent, button.accent, td.accent {
   display: flex;
   padding: 1em;
   gap: 1em;
-  justify-content: space-between;
-  background-image: linear-gradient(to right, #003C1F, #E7CA43, #E7CA43, #3C0000);
+  justify-content: space-evenly;
+  background-image: linear-gradient(to right, #003C1F, #E7CA43, #B59817, #3C0000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.infographic span {
+.infographic li {
   display: flex;
   flex-direction: column;
 }
