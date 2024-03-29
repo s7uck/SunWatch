@@ -7,7 +7,7 @@ html, body {
   background-attachment: fixed;
   background-size: cover;
 }
-body>header, main, body>footer {
+body>header, main, body footer {
   max-width: 80ch;
   margin: 0 auto;
 }
@@ -20,24 +20,28 @@ a {
 a:hover {
   border-bottom: 1px solid currentColor;
 }
-body, body>header, main, body>footer, menu, .list, .flex, .infographic li {
+body, body>header, main, body footer, menu, .list, .flex, .infographic li {
   display: flex;
 }
-body>header, main, body>footer, menu, .list {
+body>header, main, body footer, menu, .list {
   row-gap: 1em;
   column-gap: 1em;
   flex-wrap: wrap;
 }
-body, body>header, main, body>footer, .column, .infographic li {
+body, body>header, main, body footer, .column, .infographic li {
   flex-direction: column;
 }
-body>header {
+body>header, body footer {
   padding: 4em;
   align-items: center;
   justify-content: center;
 }
 time, dd, code {
   font-variant-numeric: slashed-zero;
+}
+footer, footer a {
+  color: #4E4512;
+  font-size: small;
 }
 input, button {
   border: none !important;
@@ -51,7 +55,7 @@ input.accent, button.accent, td.accent {
   background-color: #ECE0AA;
   color: inherit;
 }
-h3, h4, h5, h6, summary, th, .infographic li {
+h3, h4, h5, h6, summary, th, footer nav, .infographic li {
   font-variant-caps: all-small-caps;
 }
 .sun_graphic svg {
@@ -80,6 +84,7 @@ h3, h4, h5, h6, summary, th, .infographic li {
   -webkit-text-fill-color: transparent;
 }
 menu {
+  margin: 0;
   padding: 0;
 }
 menu li {

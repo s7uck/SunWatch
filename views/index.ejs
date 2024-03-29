@@ -42,21 +42,31 @@
       </li><% }} %>
     </ol>
 
-    <main>
-      <center id="calendar">
-        <h3><%= month_s %> </h3>
-        <table class="calendar">
-          <thead><% for (i = 0; i < 7; i++) { %>
-            <th><%= weekdays[i].toUpperCase() %></th><% } %>
-          </thead>
-          <tbody><% for (w = 0; w < calendar.length; w++) { %>
-            <tr><% for (d = 0; d < calendar[w].length; d++) { %>
-              <td<% if (calendar[w][d] == day) { %> class="accent"<% } %>><b><%= calendar[w][d] || '' %></b></td><% } %>
-            </tr><% } %>
-          </tbody>
-        </table>
-      </center>
-    </main>
-  </div>
+  <main>
+    <center id="calendar">
+      <h3><%= month_s %> </h3>
+      <table class="calendar">
+        <thead><% for (i = 0; i < 7; i++) { %>
+          <th><%= weekdays[i].toUpperCase() %></th><% } %>
+        </thead>
+        <tbody><% for (w = 0; w < calendar.length; w++) { %>
+          <tr><% for (d = 0; d < calendar[w].length; d++) { %>
+            <td<% if (calendar[w][d] == day) { %> class="accent"<% } %>><b><%= calendar[w][d] || '' %></b></td><% } %>
+          </tr><% } %>
+        </tbody>
+      </table>
+    </center>
+  </main>
+
+  <footer>
+    <nav>
+      <menu>
+        <li><a href="/about">About</a></li>
+        <li><a href="/sources">Sources</a></li>
+        <li><a href="/code">Code</a></li>
+      </menu>
+    </nav>
+  </footer>
+</div>
 </body>
 </html>
