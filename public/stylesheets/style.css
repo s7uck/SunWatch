@@ -75,7 +75,7 @@ h3, h4, h5, h6, summary, th, .infographic li {
   justify-content: space-evenly;
 }
 .gradient>.infographic {
-  background-image: linear-gradient(to right, #003C1F, #E7CA43, #B59817, #3C0000);
+  background-image: linear-gradient(to right, #003C1F, #B59817, #3C0000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
