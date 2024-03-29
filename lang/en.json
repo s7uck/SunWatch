@@ -1,0 +1,15 @@
+{
+	"location": "Location",
+    "nightEnd": "Night End",
+    "astronomicalDawn": "Astronomical Dawn",
+    "nauticalDawn": "Nautical Dawn",
+    "civilDawn": "Civil Dawn",
+    "sunrise": "Sunrise",
+    "solarNoon": "Noon",
+    "sunset": "Sunset",
+    "civilDusk": "Civil Dusk",
+    "dusk": "Nautical Dusk",
+    "nauticalDusk": "Nautical Dusk",
+    "astronomicalDusk": "Astronomical Dusk",
+    "night": "Night"
+}

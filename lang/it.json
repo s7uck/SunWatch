@@ -1,0 +1,15 @@
+{
+	"location": "Posizione",
+    "nightEnd": "Fine Notte",
+    "astronomicalDawn": "Alba Astronomica",
+    "nauticalDawn": "Alba Nautica",
+    "civilDawn": "Alba Civile",
+    "sunrise": "Alba",
+    "solarNoon": "Mezzogiorno",
+    "sunset": "Tramonto",
+    "civilDusk": "Tramonto Civile",
+    "dusk": "Tramonto Nautico",
+    "nauticalDusk": "Tramonto Nautico",
+    "astronomicalDusk": "Tramonto Astronomico",
+    "night": "Notte"
+}
