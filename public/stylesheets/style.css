@@ -59,6 +59,8 @@ h3, h4, h5, h6, summary, .infographic li {
   position: relative;
   width: 100%;
   background-size: 100% 100%;
+  overflow: visible;
+  min-height: 50px !important;
   max-height: 250px !important;
 }
 .sun_graphic .fill {
