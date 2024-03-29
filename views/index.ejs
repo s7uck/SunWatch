@@ -33,14 +33,24 @@
     </svg>
   </div>
 
-  <div class="gradient">
-    <ol class="infographic list">
-<% for (time of ["nightEnd", "nauticalDawn", "sunrise", "solarNoon", "sunset", "dusk", "night"]) { %><% if (times[time] != "Invalid Date") { %>
-      <li>
-        <strong><%= locale[time] %></strong>
-        <time><%= times[time] %></time>
-      </li><% }} %>
-    </ol>
+<div class="gradient">
+  <ol class="infographic list">
+<% for (time of ["nightEnd", "nauticalDawn", "sunrise"]) { if (times[time] != "Invalid Date") { %>
+    <li id="<%= time %>">
+      <strong><%= locale[time] %></strong>
+      <time><%= times[time] %></time>
+    </li><% }} %>
+<% if (maxElevation > 0) { %>
+    <li>
+      <strong><%= locale.solarNoon %></strong>
+      <time><%= times.solarNoon %></time>
+    </li><% } %>
+<% for (time of ["sunset", "dusk", "night"]) { if (times[time] != "Invalid Date") { %>
+    <li>
+      <strong><%= locale[time] %></strong>
+      <time><%= times[time] %></time>
+    </li><% }} %>
+  </ol>
 
   <main>
     <center id="calendar">
