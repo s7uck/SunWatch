@@ -65,11 +65,29 @@ router.get('/', function(req, res, next) {
   res.locals.lat = lat
   res.locals.long = long
   res.locals.elevation = elevation
-  res.locals.times = times
-  for (time of Object.keys(times)) {
-    res.locals.times[time] = res.locals.times[time].toLocaleTimeString()
-  }
   res.locals.maxElevation = maxElevation
+
+  // todo: make this less terrible
+  res.locals.times = {
+    "Night End": times.nightEnd,
+    "Nautical Dawn": times.nauticalDawn,
+    "Sunrise": times.sunrise,
+    "Noon": times.solarNoon,
+    "Sunset": times.sunset,
+    "Nautical Dusk": times.dusk,
+    "Night": times.night
+  }
+  // filter out irrelevant times (ex. "sunrise" at the poles)
+  for (time of Object.keys(res.locals.times)) {
+    let timeString = res.locals.times[time].toLocaleTimeString()
+    res.locals.times[time] = timeString
+    if (timeString == "Invalid Date") delete res.locals.times[time]
+  }
+  // remove "noon" during polar night because it's useless
+  if (maxElevation < 90) delete res.locals.times["Noon"]
+
+  res.locals.sunlightLength = times.sunsetEnd - times.sunrise / 100
+  res.locals.daylightLength = times.night - times.nightEnd / 100
 
   let graph_y = 50 + (20/12) * Math.max(0, elevationDelta)
   let calendar = makeCalendar(date)
