@@ -2,8 +2,6 @@ html, body {
   margin: 0;
   height: 100%;
   font-family: 'Noto Sans';
-  display: flex;
-  flex-direction: column;
   background-color: #FFEFD8;
   background-image: linear-gradient(#FFEFD8, #D0C4B3);
   background-attachment: fixed;
@@ -22,17 +20,19 @@ a {
 a:hover {
   border-bottom: 1px solid currentColor;
 }
-article {
-  max-width: 80ch;
-}
-body>header,menu,.list {
+body, body>header, main, body>footer, menu, .list, .flex, .infographic li {
   display: flex;
+}
+body>header, main, body>footer, menu, .list {
   row-gap: 1em;
   column-gap: 1em;
+  flex-wrap: wrap;
+}
+body, body>header, main, body>footer, .column, .infographic li {
+  flex-direction: column;
 }
 body>header {
   padding: 4em;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -51,7 +51,7 @@ input.accent, button.accent, td.accent {
   background-color: #ECE0AA;
   color: inherit;
 }
-h3, h4, h5, h6, summary, .infographic li {
+h3, h4, h5, h6, summary, th, .infographic li {
   font-variant-caps: all-small-caps;
 }
 .sun_graphic svg {
@@ -71,17 +71,13 @@ h3, h4, h5, h6, summary, .infographic li {
   background-image: linear-gradient(#E5D9C7, #D0C4B3);
 }
 .infographic {
-  display: flex;
   padding: 1em;
-  gap: 1em;
   justify-content: space-evenly;
+}
+.gradient>.infographic {
   background-image: linear-gradient(to right, #003C1F, #E7CA43, #B59817, #3C0000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-.infographic li {
-  display: flex;
-  flex-direction: column;
 }
 menu {
   padding: 0;
@@ -89,13 +85,19 @@ menu {
 menu li {
   list-style-type: none;
 }
-main>.calendar {
-  margin: 0 auto;
+.calendar {
   border-collapse: collapse;
+}
+table td {
+  outline: 1px solid #D0C4B3;
+  padding: 8px;
+}
+thead th {
+  font-weight: normal;
+  outline: 0;
 }
 .calendar td:not(:empty) {
   text-align: right;
-  outline: 1px solid #D0C4B3;
   padding: 8px 10px;
   max-width: 38px;
 }
