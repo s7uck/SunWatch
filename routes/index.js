@@ -4,6 +4,9 @@ var sun = require('../sun');
 var router = express.Router();
 
 dateValid = (date) => !isNaN(date)
+Array.prototype.joinValues = function(delimiter) {
+  return this.filter(Boolean).join(delimiter)
+}
 
 function makeCalendar(date) {
   let today = date;
@@ -32,7 +35,7 @@ router.get('/', function(req, res, next) {
   let site = req.app.locals.site;
 
   let now = new Date()
-  let date = new Date(req.query.date + ' ' + req.query.time)
+  let date = new Date([req.query.date, req.query.time].joinValues(" "))
   if (!dateValid(date)) date = now
   let lat = req.query.lat || 40
   let long = req.query.long || 17 //example rn
