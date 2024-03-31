@@ -51,7 +51,7 @@ input, button {
   font-family: inherit;
   font-size: inherit;
 }
-input.accent, button.accent, td.accent {
+input.accent, button.accent, td.accent, .calendar td:hover {
   background-color: #ECE0AA;
   color: inherit;
 }
@@ -75,7 +75,7 @@ h3, h4, h5, h6, summary, th, footer nav, .infographic li {
   background-image: linear-gradient(#E5D9C7, #D0C4B3);
 }
 .infographic {
-  padding: 2em;
+  margin: 2em;
   justify-content: space-between;
 }
 .infographic li {
@@ -84,15 +84,20 @@ h3, h4, h5, h6, summary, th, footer nav, .infographic li {
 }
 .infographic #solarNoon {
   flex-grow: 2;
-  align-content: center;
+  align-items: center;
 }
 .infographic #solarNoon ~ li {
   align-items: flex-end;
+}
+.infographic.list {
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 .gradient>.infographic {
   background-image: linear-gradient(to right, #003C1F, #B59817, #3C0000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-attachment: local;
 }
 menu {
   margin: 0;
@@ -101,12 +106,15 @@ menu {
 menu li {
   list-style-type: none;
 }
-.calendar {
+table {
   border-collapse: collapse;
 }
 table td {
   outline: 1px solid #D0C4B3;
   padding: 8px;
+}
+td a {
+  color: inherit;
 }
 thead th {
   font-weight: normal;
@@ -115,5 +123,19 @@ thead th {
 .calendar td:not(:empty) {
   text-align: right;
   padding: 8px 10px;
-  max-width: 38px;
+}
+.calendar td:hover {
+  border: 0;
+}
+::-webkit-scrollbar {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #ECE0AA;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #DDF2CC;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #D0C4B3;
 }

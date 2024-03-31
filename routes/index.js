@@ -83,6 +83,8 @@ router.get('/', function(req, res, next) {
   res.locals.graph_y = graph_y
   res.locals.calendar = calendar
 
+  res.locals.year = date.getFullYear()
+  res.locals.month = date.getMonth() + 1
   res.locals.day = date.getDate()
   res.locals.weekdays = getWeekdayString()
   res.locals.month_s = date.toLocaleString(undefined, { month: "long" })

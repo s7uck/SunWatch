@@ -54,14 +54,14 @@
 
   <main>
     <center id="calendar">
-      <h3><%= month_s %> </h3>
-      <table class="calendar">
+      <table id="calendar_<%=month%>" class="calendar">
+        <h3><%= month_s %> </h3>
         <thead><% for (i = 0; i < 7; i++) { %>
           <th><%= weekdays[i].toUpperCase() %></th><% } %>
         </thead>
         <tbody><% for (w = 0; w < calendar.length; w++) { %>
           <tr><% for (d = 0; d < calendar[w].length; d++) { %>
-            <td<% if (calendar[w][d] == day) { %> class="accent"<% } %>><b><%= calendar[w][d] || '' %></b></td><% } %>
+            <td<% if (calendar[w][d] == day) { %> class="accent"<% } %>><a href="/?date=<%=year%>-<%=month%>-<%= calendar[w][d] || '01' %>"><b><%= calendar[w][d] || '' %></b></a></td><% } %>
           </tr><% } %>
         </tbody>
       </table>
