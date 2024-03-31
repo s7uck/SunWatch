@@ -41,12 +41,12 @@
       <time><%= times[time] %></time>
     </li><% }} %>
 <% if (maxElevation > 0) { %>
-    <li>
+    <li id="solarNoon">
       <strong><%= locale.solarNoon %></strong>
       <time><%= times.solarNoon %></time>
     </li><% } %>
 <% for (time of ["sunset", "dusk", "night"]) { if (times[time] != "Invalid Date") { %>
-    <li>
+    <li id="<%= time %>">
       <strong><%= locale[time] %></strong>
       <time><%= times[time] %></time>
     </li><% }} %>

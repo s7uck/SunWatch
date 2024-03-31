@@ -75,8 +75,19 @@ h3, h4, h5, h6, summary, th, footer nav, .infographic li {
   background-image: linear-gradient(#E5D9C7, #D0C4B3);
 }
 .infographic {
-  padding: 1em;
-  justify-content: space-evenly;
+  padding: 2em;
+  justify-content: space-between;
+}
+.infographic li {
+  flex-grow: 1;
+  flex-wrap: wrap;
+}
+.infographic #solarNoon {
+  flex-grow: 2;
+  align-content: center;
+}
+.infographic #solarNoon ~ li {
+  align-items: flex-end;
 }
 .gradient>.infographic {
   background-image: linear-gradient(to right, #003C1F, #B59817, #3C0000);
