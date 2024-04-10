@@ -10,9 +10,7 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
-site_data = fs.readFileSync('site.data', { encoding: 'utf-8', flag: 'r' });
-var site = JSON.parse(site_data);
-
+site = require('./config.js');
 app.locals.site = site;
 const LOGFILE = process.env.LOGFILE || '/tmp/sunwatch_access.log';
 
@@ -45,6 +43,8 @@ app.use(i18n(
 
 // index page
 app.use('/', indexRouter);
+// other pages
+var pagesRouter = require('./routes/pages')();
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
