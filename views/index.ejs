@@ -21,6 +21,9 @@
 
   <div class="sun_graphic">
     <svg viewBox="0 0 1646 484" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:<%= graph_y %>px">
+    <script defer>
+      document.querySelector('.sun_graphic svg').style.height = window.innerWidth % 300;
+    </script>
     <path d="M0 482C418.298 482 404.559 2 822.857 2C1241.16 2 1227.42 482 1645.71 482" stroke="url(#paint0_linear_2_5)" stroke-width="4" class="fill"/>
     <defs>
     <linearGradient id="paint0_linear_2_5" x1="-0.000338016" y1="139.143" x2="1645.71" y2="138.982" gradientUnits="userSpaceOnUse">
