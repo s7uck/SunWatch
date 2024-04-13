@@ -55,6 +55,19 @@
       <time><%= times[time] %></time>
     </li><% }} %>
   </ol>
+  <ol class="infographic list">
+    <li id="minElevation">
+      <strong><%= locale.minElevation %></strong>
+      <time><%= Math.round(minElevation, 2) %> (<%= times.nadir %>)</time>
+    </li>
+    <li id="elevation">
+      <strong><%= locale.elevation %></strong>
+      <time><%= Math.round(elevation, 2) %> (<%= time_s %>)</time>
+    </li>
+    <li id="maxElevation">
+      <strong><%= locale.maxElevation %></strong>
+      <time><%= Math.round(maxElevation, 2) %> (<%= times.solarNoon %>)</time>
+  </ol>
 
   <main>
     <center id="calendar">

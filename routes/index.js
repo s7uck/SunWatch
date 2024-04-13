@@ -60,15 +60,17 @@ router.get('/', function(req, res, next) {
 
   let elevation = sun.elevation(date, lat, long)
   let maxElevation = sun.maxElevation(date, lat, long)
+  let minElevation = sun.minElevation(date, lat, long)
   let elevationDelta = sun.elevationDelta(date, lat, long)
 
-  console.log(date, lat, long, elevation, maxElevation)
+  console.log(date, lat, long, elevation, maxElevation, minElevation)
 
   res.locals.date = date
   res.locals.lat = lat
   res.locals.long = long
   res.locals.elevation = elevation
   res.locals.maxElevation = maxElevation
+  res.locals.minElevation = minElevation
 
   res.locals.times = times
   for (time of Object.keys(res.locals.times)) {
