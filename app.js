@@ -44,7 +44,7 @@ app.use(i18n(
 // index page
 app.use('/', indexRouter);
 // other pages
-var pagesRouter = require('./routes/pages')();
+var pagesRouter = require('./routes/pages')(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
