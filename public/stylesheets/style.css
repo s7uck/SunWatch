@@ -23,7 +23,7 @@ a:hover {
 body, body>header, main, body footer, menu, .list, .flex, .infographic li {
   display: flex;
 }
-body>header, main, body footer, menu, .list {
+body>header, main, body footer, menu, .list, .flex {
   row-gap: 1em;
   column-gap: 1em;
   flex-wrap: wrap;
@@ -51,6 +51,12 @@ input, button {
   font-family: inherit;
   font-size: inherit;
 }
+form.flex {
+  max-width: 50%;
+}
+form input {
+  flex-grow: 1;
+}
 .horizontal {
   flex-direction: row;
 }
@@ -61,7 +67,15 @@ input.accent, button.accent, td.accent, .calendar td:hover {
   background-color: #ECE0AA;
   color: inherit;
 }
-h3, h4, h5, h6, summary, th, footer nav, .infographic li {
+input[type=submit] {
+  background-color: #e6c639;
+  cursor: pointer;
+}
+input[type=submit].icon {
+  height: 2em;
+  width: 2em;
+}
+h3, h4, h5, h6, summary, th, footer nav, button, input[type=submit], .infographic li {
   font-variant-caps: all-small-caps;
 }
 .sun_graphic svg {
