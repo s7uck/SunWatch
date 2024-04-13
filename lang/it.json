@@ -1,5 +1,7 @@
 {
 	"location": "Posizione",
+    "latitude": "Latitudine",
+    "longitude": "Longitudine",
     "date": "Data",
     "time": "Orario",
     "nightEnd": "Fine Notte",

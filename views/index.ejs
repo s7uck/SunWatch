@@ -15,7 +15,8 @@
   <header>
     <img src="/images/logo_black.svg" alt="SunWatch" height="32">
     <form action="/" method="GET" class="flex" style="max-width: 330px;">
-      <input type="text" name="location" class="accent" placeholder="<%= locale.location %>">
+      <input type="number" name="lat" value="<%= lat %>" step="any" class="accent" placeholder="<%= locale.latitude %>">
+      <input type="number" name="long" value="<%= long %>" step="any" class="accent" placeholder="<%= locale.longitude %>">
       <input type="date" name="date" value="<%= date_s %>" class="accent" placeholder="<%= locale.date %>">
       <input type="time" name="time" value="<%= time_s %>" class="accent" placeholder="<%= locale.time %>">
       <input type="submit" hidden class="accent icon" value="→">

@@ -1,5 +1,7 @@
 {
 	"location": "Location",
+    "latitude": "Latitude",
+    "longitude": "Longitude",
     "date": "Date",
     "time": "Time",
     "nightEnd": "Night End",

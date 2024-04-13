@@ -43,7 +43,7 @@ footer, footer a {
   color: #4E4512;
   font-size: small;
 }
-input, button {
+input, button, select {
   border: none !important;
   outline: none !important;
   border-radius: 4px;
@@ -63,7 +63,7 @@ form input {
 .vertical {
   flex-direction: column;
 }
-input.accent, button.accent, td.accent, .calendar td:hover {
+input.accent, button.accent, select.accent, td.accent, .calendar td:hover {
   background-color: #ECE0AA;
   color: inherit;
 }
