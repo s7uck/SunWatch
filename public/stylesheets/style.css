@@ -51,14 +51,14 @@ input, button, select {
   font-family: inherit;
   font-size: inherit;
 }
-form.flex {
-  max-width: 50%;
-}
-form input {
+.space > * {
   flex-grow: 1;
 }
 .horizontal {
   flex-direction: row;
+}
+.center {
+  align-items: center;
 }
 .vertical {
   flex-direction: column;
@@ -98,20 +98,15 @@ h3, h4, h5, h6, summary, th, footer nav, button, input[type=submit], .infographi
   justify-content: space-between;
 }
 .infographic li {
-  flex-grow: 1;
   flex-wrap: wrap;
 }
 .infographic #solarNoon {
   flex-grow: 2;
   align-items: center;
 }
-.infographic #solarNoon ~ li {
+.space.infographic #solarNoon ~ li, .space.infographic li:last-of-type {
   text-align: right;
   align-items: flex-end;
-}
-.infographic.list {
-  flex-wrap: nowrap;
-  overflow-x: auto;
 }
 .gradient>.infographic {
   background-image: linear-gradient(to right, #003C1F, #B59817, #3C0000);
@@ -127,6 +122,12 @@ menu {
 }
 menu li {
   list-style-type: none;
+}
+form.flex {
+  max-width: 50%;
+}
+form input {
+  flex-grow: 1;
 }
 table {
   border-collapse: collapse;

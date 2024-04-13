@@ -38,35 +38,22 @@
   </div>
 
 <div class="gradient">
-  <ol class="infographic list">
+  <ol class="space infographic list">
 <% for (time of ["nightEnd", "nauticalDawn", "sunrise"]) { if (times[time] != "Invalid Date") { %>
     <li id="<%= time %>">
       <strong><%= locale[time] %></strong>
-      <time><%= times[time] %></time>
+      <time datetime="<%= times[time] %>"><%= times[time] %></time>
     </li><% }} %>
 <% if (maxElevation > 0) { %>
     <li id="solarNoon">
       <strong><%= locale.solarNoon %></strong>
-      <time><%= times.solarNoon %></time>
+      <time datetime="<%= times.solarNoon %>"><%= times.solarNoon %></time>
     </li><% } %>
 <% for (time of ["sunset", "dusk", "night"]) { if (times[time] != "Invalid Date") { %>
     <li id="<%= time %>">
       <strong><%= locale[time] %></strong>
-      <time><%= times[time] %></time>
+      <time datetime="<%= times[time] %>"><%= times[time] %></time>
     </li><% }} %>
-  </ol>
-  <ol class="infographic list">
-    <li id="minElevation">
-      <strong><%= locale.minElevation %></strong>
-      <time><%= Math.round(minElevation, 2) %> (<%= times.nadir %>)</time>
-    </li>
-    <li id="elevation">
-      <strong><%= locale.elevation %></strong>
-      <time><%= Math.round(elevation, 2) %> (<%= time_s %>)</time>
-    </li>
-    <li id="maxElevation">
-      <strong><%= locale.maxElevation %></strong>
-      <time><%= Math.round(maxElevation, 2) %> (<%= times.solarNoon %>)</time>
   </ol>
 
   <main>
@@ -83,6 +70,20 @@
         </tbody>
       </table>
     </center>
+
+    <ol class="infographic list">
+      <li id="minElevation">
+        <strong><%= locale.minElevation %></strong>
+        <span><%= Math.round(minElevation, 2) %> · <time datetime="<%= times.nadir %>"><%= times.nadir %></time></span>
+      </li>
+      <li id="elevation">
+        <strong><%= locale.att %> <%= locale.elevation %></strong>
+        <span><%= Math.round(elevation, 2) %></span>
+      </li>
+      <li id="maxElevation">
+        <strong><%= locale.maxElevation %></strong>
+        <span><%= Math.round(maxElevation, 2) %> · <time datetime="<%= times.solarNoon %>"><%= times.solarNoon %></time></span>
+    </ol>
   </main>
 
   <footer>
