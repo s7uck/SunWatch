@@ -1,5 +1,7 @@
 {
 	"location": "Posizione",
+    "date": "Data",
+    "time": "Orario",
     "nightEnd": "Fine Notte",
     "astronomicalDawn": "Alba Astronomica",
     "nauticalDawn": "Alba Nautica",

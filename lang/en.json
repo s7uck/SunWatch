@@ -1,5 +1,7 @@
 {
 	"location": "Location",
+    "date": "Date",
+    "time": "Time",
     "nightEnd": "Night End",
     "astronomicalDawn": "Astronomical Dawn",
     "nauticalDawn": "Nautical Dawn",
