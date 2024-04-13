@@ -51,6 +51,12 @@ input, button {
   font-family: inherit;
   font-size: inherit;
 }
+.horizontal {
+  flex-direction: row;
+}
+.vertical {
+  flex-direction: column;
+}
 input.accent, button.accent, td.accent, .calendar td:hover {
   background-color: #ECE0AA;
   color: inherit;
