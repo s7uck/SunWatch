@@ -48,10 +48,13 @@ router.get('/', function(req, res, next) {
   let now = new Date()
   let date = new Date([req.query.date, req.query.time].joinValues(" "))
   if (!dateValid(date)) date = now
-  let lat = req.query.lat || 40
-  let long = req.query.long || 17 //example rn
+  let lat = req.query.lat || req.cookies.lat || 47
+  let long = req.query.long || req.cookies.long || 10 //example rn
   let alt = req.query.alt || 0
   let utcOffset = date.getTimezoneOffset()
+
+  if (!req.cookies.lat) req.cookies.lat = lat
+  if (!req.cookies.long) req.cookies.long = long
 
   let times = sun.times(date, lat, long, alt)
 
