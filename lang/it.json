@@ -31,5 +31,6 @@
     "duskTwilight": "Crepuscolo Nautico",
     "astronomicalDusk": "Tramonto Astronomico",
     "astronomicalDuskTwilight": "Crepuscolo Astronomico",
-    "night": "Notte"
+    "night": "Notte",
+    "nightStart": "Inizio Notte"
 }

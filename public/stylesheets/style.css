@@ -104,6 +104,12 @@ thead th {
   font-weight: normal;
   outline: 0;
 }
+.icon {
+  max-width: 1.5em;
+}
+.invert {
+  filter: invert(1);
+}
 .sun_graphic svg {
   display: block;
   position: relative;

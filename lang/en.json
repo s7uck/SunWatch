@@ -31,5 +31,6 @@
     "nauticalDuskTwilight": "Nautical Dusk Twilight",
     "astronomicalDusk": "Astronomical Dusk",
     "astronomicalDuskTwilight": "Astronomical Twilight",
-    "night": "Night"
+    "night": "Night",
+    "nightStart": "Night Start"
 }

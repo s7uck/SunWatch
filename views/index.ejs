@@ -37,10 +37,11 @@
     </svg>
   </div>
 
-  <ol class="infographic">
+  <ol class="horizontal infographic">
     <img src="/images/line.svg" style="position: absolute;width: 100%;left: 50%;transform: translate(-50%, 35px) scaleX(0.95);margin: 0 auto;">
   <% for (time of ["nightEnd", "nauticalDawn", "sunrise"]) { if (times[time] != "Invalid Date") { %>
     <li id="<%= time %>">
+      <img src="/images/<%= time %>.webp" alt="<%= locale[time] %>" class="icon invert">
       <strong><%= locale[time] %></strong>
       <time datetime="<%= times[time] %>"><%= times[time] %></time>
     </li><% }} %>
@@ -49,8 +50,10 @@
       <strong><%= locale.solarNoon %></strong>
       <time datetime="<%= times.solarNoon %>"><%= times.solarNoon %></time>
     </li><% } %>
-<% for (time of ["sunset", "dusk", "night"]) { if (times[time] != "Invalid Date") { %>
+<% times["nightStart"] = times.night %>
+<% for (time of ["sunset", "dusk", "nightStart"]) { if (times[time] != "Invalid Date") { %>
     <li id="<%= time %>">
+      <img src="/images/<%= time %>.webp" alt="<%= locale[time] %>" class="icon invert">
       <strong><%= locale[time] %></strong>
       <time datetime="<%= times[time] %>"><%= times[time] %></time>
     </li><% }} %>
