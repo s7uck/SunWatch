@@ -134,6 +134,9 @@ thead th {
   padding: 1em;
   justify-content: space-between;
 }
+.horizontal.infographic {
+  align-items: center;
+}
 .infographic li {
   padding: 1em;
   flex-wrap: wrap;
