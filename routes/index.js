@@ -7,6 +7,7 @@ dateValid = (date) => !isNaN(date)
 Array.prototype.joinValues = function(delimiter) {
   return this.filter(Boolean).join(delimiter)
 }
+Math.roundTo = (x, n) => Math.round(x * 10**n) / 10**n
 
 function makeCalendar(date) {
   let today = date;

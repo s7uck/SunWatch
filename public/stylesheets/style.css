@@ -39,6 +39,9 @@ body>header, body footer {
 time, dd, code {
   font-variant-numeric: slashed-zero;
 }
+.thin {
+  font-weight: lighter;
+}
 footer, footer a {
   color: #4E4512;
   font-size: small;
@@ -75,7 +78,7 @@ input[type=submit].icon {
   height: 2em;
   width: 2em;
 }
-h3, h4, h5, h6, summary, th, footer nav, button, input[type=submit], .infographic li {
+h3, h4, h5, h6, summary, th, footer nav, button, input[type=submit], .thin, .infographic li {
   font-variant-caps: all-small-caps;
 }
 .sun_graphic svg {

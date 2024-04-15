@@ -74,15 +74,15 @@
     <ol class="infographic list">
       <li id="minElevation">
         <strong><%= locale.minElevation %></strong>
-        <span><%= Math.round(minElevation, 2) %> · <time datetime="<%= times.nadir %>"><%= times.nadir %></time></span>
+        <span><%= Math.roundTo(minElevation, 2) %>° · <time datetime="<%= times.nadir %>" class="thin"><%= times.nadir %></time></span>
       </li>
       <li id="elevation">
         <strong><%= locale.att %> <%= locale.elevation %></strong>
-        <span><%= Math.round(elevation, 2) %></span>
+        <span><%= Math.roundTo(elevation, 2) %>°</span>
       </li>
       <li id="maxElevation">
         <strong><%= locale.maxElevation %></strong>
-        <span><%= Math.round(maxElevation, 2) %> · <time datetime="<%= times.solarNoon %>"><%= times.solarNoon %></time></span>
+        <span><%= Math.roundTo(maxElevation, 2) %>° · <time datetime="<%= times.solarNoon %>" class="thin"><%= times.solarNoon %></time></span>
     </ol>
   </main>
 
