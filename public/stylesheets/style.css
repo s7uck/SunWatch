@@ -148,7 +148,7 @@ thead th {
   text-align: right;
   align-items: flex-end;
 }
-.gradient>.infographic {
+.sun_gradient {
   background-image: linear-gradient(to right, #003C1F, #B59817, #3C0000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
