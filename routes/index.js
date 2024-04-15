@@ -8,6 +8,17 @@ Array.prototype.joinValues = function(delimiter) {
   return this.filter(Boolean).join(delimiter)
 }
 Math.roundTo = (x, n) => Math.round(x * 10**n) / 10**n
+function map(object, f) {
+  return Object.fromEntries(
+    Object.entries(object).map(([k,v]) => [k, f(v)])
+  );
+}
+function duration(time_ms) {
+  date = new Date(time_ms)
+  utcHour = date.getUTCHours()
+  date.setHours(utcHour)
+  return date
+}
 
 function makeCalendar(date) {
   let today = date;
@@ -53,6 +64,8 @@ router.get('/', function(req, res, next) {
   let long = req.query.long || req.cookies.long || 18.520502 //example rn
   let alt = req.query.alt || 0
   let utcOffset = date.getTimezoneOffset()
+  let todayMidnight = new Date(now.toDateString())
+  let dateMidnight = new Date(date.toDateString())
 
   if (!req.cookies.lat) res.cookie('lat', lat, { secure: true })
   if (!req.cookies.long)res.cookie('long',long,{ secure: true })
@@ -73,16 +86,28 @@ router.get('/', function(req, res, next) {
   res.locals.maxElevation = maxElevation
   res.locals.minElevation = minElevation
 
-  res.locals.times = times
-  for (time of Object.keys(res.locals.times)) {
-    let timeString = res.locals.times[time].toLocaleTimeString()
-    res.locals.times[time] = timeString
-  }
+  res.locals.times = map(times, t => t.toLocaleTimeString())
 
-  res.locals.sunlightLength = times.sunsetEnd - times.sunrise / 100
-  res.locals.daylightLength = times.night - times.nightEnd / 100
-  res.locals.darknessLength = times.sunrise - times.sunset / 100
-  res.locals.nightLength = times.nightEnd - times.night / 100
+  let morningTwilight = {
+    "astronomical": times.nauticalDawn - times.nightEnd,
+    "nautical": times.dawn - times.nauticalDawn,
+    "civil": times.sunrise - times.dawn
+  }
+  let eveningTwilight = {
+    "civil": times.dusk - times.sunset,
+    "nautical": times.nauticalDusk - times.dusk,
+    "astronomical": times.night - times.nauticalDusk
+  }
+  res.locals.morningTwilight = map(morningTwilight, t => duration(t).toLocaleTimeString())
+  res.locals.eveningTwilight = map(eveningTwilight, t => duration(t).toLocaleTimeString())
+
+  res.locals.morningLength = times.solarNoon - times.sunriseEnd
+  res.locals.afternoonLength = times.sunsetStart - times.solarNoon
+
+  res.locals.sunlightLength = times.sunsetEnd - times.sunrise
+  res.locals.daylightLength = times.night - times.nightEnd
+  res.locals.darknessLength = times.sunrise - times.sunset
+  res.locals.nightLength = times.nightEnd - times.night
 
   res.locals.date_s = date.toISOString().split('T')[0]
   res.locals.time_s = date.toISOString().split('T')[1].replace('Z', '')
