@@ -37,9 +37,9 @@
     </svg>
   </div>
 
-<div class="gradient">
-  <ol class="space infographic list">
-<% for (time of ["nightEnd", "nauticalDawn", "sunrise"]) { if (times[time] != "Invalid Date") { %>
+  <ol class="infographic">
+    <img src="/images/line.svg" style="position: absolute;width: 100%;left: 50%;transform: translate(-50%, 35px) scaleX(0.95);margin: 0 auto;">
+  <% for (time of ["nightEnd", "nauticalDawn", "sunrise"]) { if (times[time] != "Invalid Date") { %>
     <li id="<%= time %>">
       <strong><%= locale[time] %></strong>
       <time datetime="<%= times[time] %>"><%= times[time] %></time>
@@ -56,6 +56,7 @@
     </li><% }} %>
   </ol>
 
+<div class="gradient">
   <main>
     <center id="calendar">
       <table id="calendar_<%=month%>" class="calendar">
@@ -71,7 +72,7 @@
       </table>
     </center>
 
-    <ol class="infographic list">
+    <ol class="infographic">
       <li id="minElevation">
         <strong><%= locale.minElevation %></strong>
         <span><%= Math.roundTo(minElevation, 2) %>° · <time datetime="<%= times.nadir %>" class="thin"><%= times.nadir %></time></span>

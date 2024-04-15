@@ -20,7 +20,7 @@ a {
 a:hover {
   border-bottom: 1px solid currentColor;
 }
-body, body>header, main, body footer, menu, .list, .flex, .infographic li {
+body, body>header, main, body footer, menu, .list, .flex, .infographic, .infographic li {
   display: flex;
 }
 body>header, main, body footer, menu, .list, .flex {
@@ -54,14 +54,8 @@ input, button, select {
   font-family: inherit;
   font-size: inherit;
 }
-.space > * {
-  flex-grow: 1;
-}
 .horizontal {
   flex-direction: row;
-}
-.center {
-  align-items: center;
 }
 .vertical {
   flex-direction: column;
@@ -80,42 +74,6 @@ input[type=submit].icon {
 }
 h3, h4, h5, h6, summary, th, footer nav, button, input[type=submit], .thin, .infographic li {
   font-variant-caps: all-small-caps;
-}
-.sun_graphic svg {
-  display: block;
-  position: relative;
-  width: 100%;
-  background-size: 100% 100%;
-  overflow: visible;
-  min-height: 50px !important;
-  max-height: 250px !important;
-}
-.sun_graphic .fill {
-  fill: #E5D9C7;
-}
-.sun_graphic ~ .gradient {
-  background-image: linear-gradient(#E5D9C7, #D0C4B3);
-}
-.infographic {
-  margin: 2em;
-  justify-content: space-between;
-}
-.infographic li {
-  flex-wrap: wrap;
-}
-.infographic #solarNoon {
-  flex-grow: 2;
-  align-items: center;
-}
-.space.infographic #solarNoon ~ li, .space.infographic li:last-of-type {
-  text-align: right;
-  align-items: flex-end;
-}
-.gradient>.infographic {
-  background-image: linear-gradient(to right, #003C1F, #B59817, #3C0000);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-attachment: local;
 }
 menu, ul.list, ol.list {
   padding: 0;
@@ -145,6 +103,47 @@ td a {
 thead th {
   font-weight: normal;
   outline: 0;
+}
+.sun_graphic svg {
+  display: block;
+  position: relative;
+  width: 100%;
+  background-size: 100% 100%;
+  overflow: visible;
+  min-height: 50px !important;
+  max-height: 250px !important;
+}
+.sun_graphic .fill {
+  fill: #E5D9C7;
+}
+.sun_graphic + *, .sun_graphic + * li {
+  background-color: #E5D9C7;
+  z-index: 1;
+}
+.sun_graphic ~ .gradient {
+  background-image: linear-gradient(#E5D9C7, #D0C4B3);
+}
+.infographic {
+  margin: 0;
+  padding: 1em;
+  justify-content: space-between;
+}
+.infographic li {
+  padding: 1em;
+  flex-wrap: wrap;
+}
+.infographic #solarNoon {
+  align-items: center;
+}
+.horizontal.infographic #solarNoon ~ li, .horizontal.infographic li:last-of-type {
+  text-align: right;
+  align-items: flex-end;
+}
+.gradient>.infographic {
+  background-image: linear-gradient(to right, #003C1F, #B59817, #3C0000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-attachment: local;
 }
 .calendar td:not(:empty) {
   text-align: right;
