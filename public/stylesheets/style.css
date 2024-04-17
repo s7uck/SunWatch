@@ -11,6 +11,9 @@ body>header, main, body footer {
   max-width: 80ch;
   margin: 0 auto;
 }
+main {
+  padding: 2em;
+}
 a, .accent {
   color: #B59817;
 }
@@ -122,7 +125,7 @@ thead th {
 .sun_graphic .fill {
   fill: #E5D9C7;
 }
-.sun_graphic + *, .sun_graphic + * li {
+.sun_graphic + *, .sun_graphic + *>li {
   background-color: #E5D9C7;
   z-index: 1;
 }
@@ -131,8 +134,11 @@ thead th {
 }
 .infographic {
   margin: 0;
-  padding: 1em;
+  padding: 0;
   justify-content: space-between;
+}
+body>.infographic {
+  padding: 1em;
 }
 .horizontal.infographic {
   align-items: center;
