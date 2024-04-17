@@ -8,6 +8,10 @@ module.exports = {
 			title: "About SunWatch",
 			location: "/static/about.html"
 		},
+		"/trivia": {
+			title: "Fun Facts",
+			location: "/static/trivia.html"
+		},
 		"/photography": {
 			title: "Photography with sun times",
 			location: "/static/photography.html"
