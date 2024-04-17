@@ -58,7 +58,9 @@ router.get('/', function(req, res, next) {
   let site = req.app.locals.site;
 
   let now = new Date()
-  let date = new Date([req.query.date, req.query.time].joinValues(" "))
+  console.log("now", now)
+  console.log(req.query.date, req.query.time)
+  let date = new Date([req.query.date, req.query.time].joinValues(" ") + 'Z')
   if (!dateValid(date)) date = now
   let lat = req.query.lat || req.cookies.lat || 40.107283
   let long = req.query.long || req.cookies.long || 18.520502 //example rn
@@ -78,6 +80,7 @@ router.get('/', function(req, res, next) {
   let elevationDelta = sun.elevationDelta(date, lat, long)
 
   console.log(date, lat, long, elevation, maxElevation, minElevation)
+  console.log(times)
 
   res.locals.date = date
   res.locals.lat = lat
