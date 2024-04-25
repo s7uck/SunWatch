@@ -70,7 +70,10 @@
         </thead>
         <tbody><% for (w = 0; w < calendar.length; w++) { %>
           <tr><% for (d = 0; d < calendar[w].length; d++) { %>
-            <td<% if (calendar[w][d] == day) { %> class="accent"<% } %>><a href="/?date=<%=year%>-<%=month%>-<%= calendar[w][d] || '01' %>"><b><%= calendar[w][d] || '' %></b></a></td><% } %>
+            <% dayTimes = getTimes(new Date(date.getFullYear()+'-'+(date.getMonth()+1)+'-'+calendar[w][d]), lat, long, alt) %>
+            <% sunrise_y = 100 - (dayTimes.sunrise.getHours() + dayTimes.sunrise.getMinutes() / 60) * 4.2 %>
+            <% sunset_y = 100 - (dayTimes.sunset.getHours() + dayTimes.sunset.getMinutes() / 60) * 4.2 %>
+            <td<% if (calendar[w][d] == day) { %> class="accent"<% } else { %> style="background-image: linear-gradient(transparent, transparent <%= sunset_y %>%, #D0C4B3 <%= sunset_y %>%, #D0C4B3 <%= sunrise_y %>%, transparent <%= sunrise_y %>%, transparent)"<% } %>><a href="/?date=<%=year%>-<%=month%>-<%= calendar[w][d] || '01' %>"><b><%= calendar[w][d] || '' %></b></a></td><% } %>
           </tr><% } %>
         </tbody>
       </table>

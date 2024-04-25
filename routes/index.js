@@ -85,11 +85,13 @@ router.get('/', function(req, res, next) {
   res.locals.date = date
   res.locals.lat = lat
   res.locals.long = long
+  res.locals.alt = alt
   res.locals.elevation = elevation
   res.locals.maxElevation = maxElevation
   res.locals.minElevation = minElevation
 
   res.locals.times = map(times, t => t.toLocaleTimeString())
+  res.locals.getTimes = sun.times
 
   let morningTwilight = {
     "astronomical": times.nauticalDawn - times.nightEnd,
@@ -114,6 +116,8 @@ router.get('/', function(req, res, next) {
 
   res.locals.date_s = date.toISOString().split('T')[0]
   res.locals.time_s = date.toISOString().split('T')[1].replace('Z', '')
+  res.locals.sunrise_ut = times.sunrise.getHours() + (times.sunrise.getMinutes() / 60)
+  res.locals.sunset_ut = times.sunset.getHours() + (times.sunset.getMinutes() / 60)
 
   let graph_y = 50 + (20/12) * Math.max(0, elevationDelta)
   let calendar = makeCalendar(date)
