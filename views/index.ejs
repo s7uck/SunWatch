@@ -39,6 +39,7 @@
 
   <ol class="horizontal infographic">
     <img src="/images/line.svg" style="position: absolute;width: 100%;left: 50%;transform: translate(-50%) scaleX(0.95);margin: 0 auto;">
+    <img src="/images/indicator.svg" style="position: absolute;">
 <% for (time of ["nightEnd", "nauticalDawn", "sunrise"]) { if (times[time] != "Invalid Date") { %>
     <li id="<%= time %>">
       <img src="/images/<%= time %>.webp" alt="<%= locale[time] %>" class="icon invert">
